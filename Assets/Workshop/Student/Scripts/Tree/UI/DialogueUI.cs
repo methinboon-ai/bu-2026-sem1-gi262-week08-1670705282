@@ -22,8 +22,10 @@ public class DialogueUI : MonoBehaviour
     {
         //1. Set Dialogue Sequen
         InteractNpcSequen = sequen;
-        ShowDialogue(InteractNpcSequen.currentNode);
+        DialogueNode currentNode = InteractNpcSequen.tree.root;
+        ShowDialogue(currentNode);
         //Show UI
+        dialoguePanel.SetActive(true);
         gameObject.SetActive(true);
         closeButtonDialogue.SetActive(false);
     }
@@ -32,8 +34,7 @@ public class DialogueUI : MonoBehaviour
     {
         // 2. set ����� �˹��Ѩ�غѹ
         InteractNpcSequen.currentNode = node;
-        DialogueNode currentNode = InteractNpcSequen.tree.root;
-        ShowDialogue(currentNode);
+
         // 3. ʴͤͧ NPC
         npcText.text = node.text;
         // 4. ҧ͡
